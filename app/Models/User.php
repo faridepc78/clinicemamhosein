@@ -62,6 +62,7 @@ class User extends Authenticatable
             self::INACTIVE
         ];
 
+
     public function image()
     {
         return $this->belongsTo(Media::class, 'image_id', 'id')->withDefault();

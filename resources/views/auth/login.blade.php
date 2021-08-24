@@ -45,7 +45,7 @@
 
                             <div class="form-group">
                                 <input onkeyup="this.value=removeSpaces(this.value)"
-                                       class="input-lg i-input-controller @error('national_code') is-invalid @enderror"
+                                       class="input-lg i-input-controller @error('password') is-invalid @enderror"
                                        name="password"
                                        type="password" id="password"
                                        placeholder="رمز عبور" autocomplete="password" autofocus>
