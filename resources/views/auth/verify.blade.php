@@ -138,6 +138,7 @@
             rules: {
                 active_code: {
                     required: true,
+                    number:true,
                     maxlength: 6
                 }
             },
@@ -145,7 +146,8 @@
             messages: {
                 active_code: {
                     required: "لطفا کد فعالسازی را وارد کنید",
-                    maxlength: "لطفا کد فعالسازی را صحیح وارد کنید"
+                    number:"کد فعالسازی عدد است",
+                    maxlength: "کد فعالسازی 6 رقمی است"
                 }
             },
             submitHandler: function (form) {

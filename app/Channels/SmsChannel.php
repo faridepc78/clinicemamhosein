@@ -11,6 +11,6 @@ class SmsChannel
     {
         $message = $notification->toSms($notifiable);
         $user_mobile = $notifiable->mobile;
-        GhasedakSms::sendSingleSMS($message, $user_mobile);
+        return GhasedakSms::sendSingleSMS($message, $user_mobile);
     }
 }
