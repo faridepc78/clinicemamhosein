@@ -18,7 +18,7 @@ class MediaFileService
                                         string $private_folder = null)
     {
         self::$file = $file;
-        self::$dir = 'public/';
+        self::$dir = 'uploads/';
         self::$public_folder = $public_folder;
         self::$private_folder = $private_folder;
         return self::upload();
@@ -64,15 +64,6 @@ class MediaFileService
         $media->private_folder = self::$private_folder;
         $media->save();
         return $media;
-    }
-
-    public static function thumb(Media $media)
-    {
-        foreach (config('mediaFile.MediaTypeServices') as $type => $service) {
-            if ($media->type == $type) {
-                return $service['handler']::thumb($media);
-            }
-        }
     }
 
     public static function original(Media $media)

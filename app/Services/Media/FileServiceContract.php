@@ -13,6 +13,4 @@ interface FileServiceContract
                                   string $public_folder, string $private_folder): array;
 
     public static function delete(Media $media);
-
-    public static function thumb();
 }

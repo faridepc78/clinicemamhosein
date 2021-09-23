@@ -101,7 +101,7 @@ class User extends Authenticatable
     {
         return empty($this->image->files)
             ? asset('assets/common/images/profile.png')
-            : "/storage/" . $this->image->files['original'];
+            : "/uploads/" . $this->image->files['original'];
     }
 
     public function verify()

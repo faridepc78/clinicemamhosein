@@ -8,6 +8,8 @@ use App\Http\Requests\Site\Profile\UpdateAvatarRequest;
 use App\Http\Requests\Site\Profile\UpdateProfileRequest;
 use App\Models\DoctorReserve;
 use App\Models\User;
+use App\Notifications\CancelReserve;
+use App\Notifications\CreateQuestion;
 use App\Repositories\DoctorReserveRepository;
 use App\Repositories\DoctorTimeRepository;
 use App\Repositories\QuestionRepository;
@@ -92,6 +94,7 @@ class PanelController extends Controller
             if ($reserve['status'] == DoctorReserve::UNVISITED && $reserve->time->date >= Carbon::now()->toDateString()) {
                 $this->doctorTimeRepository->updateCapacity($reserve['time_id'], false);
                 $this->doctorReserveRepository->update($reserve_id, DoctorReserve::CANCELED);
+                Auth::user()->notify(new CancelReserve(Auth::user()->fullName,$reserve->doctor->fullName));
                 newFeedback();
             } else {
                 newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
@@ -132,6 +135,8 @@ class PanelController extends Controller
                         'questions', null)->id;
                     $this->questionRepository->addMedia($media_id, $question->id);
                 }
+
+                Auth::user()->notify(new CreateQuestion(Auth::user()->fullName,$question->doctor->fullName));
             });
             DB::commit();
             newFeedback();

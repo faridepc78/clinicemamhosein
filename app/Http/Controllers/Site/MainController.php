@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\RegisterReserve;
 use App\Repositories\DoctorAboutRepository;
 use App\Repositories\DoctorReserveRepository;
 use App\Repositories\DoctorTimeRepository;
@@ -98,7 +99,8 @@ class MainController extends Controller
                 if ($result == false) {
                     if ($time['capacity'] >= 1) {
                         $this->doctorTimeRepository->updateCapacity($time_id, false);
-                        $this->doctorReserveRepository->store($values);
+                        $data = $this->doctorReserveRepository->store($values);
+                        Auth::user()->notify(new RegisterReserve(Auth::user()->fullName, $time->doctor->fullName));
                         newFeedback('پیام', 'نوبت شما با موفقیت ثبت شد', 'success');
                     } else {
                         newFeedback('پیام', 'ظرفیت این زمان تکمیل شده است', 'warning');
@@ -110,6 +112,7 @@ class MainController extends Controller
                 DB::commit();
             });
         } catch (Exception $exception) {
+            dd($exception);
             DB::rollBack();
             newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
         }

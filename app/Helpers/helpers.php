@@ -61,4 +61,10 @@ function cleanExtraQueryString(array $remove_data = null, array $add_data = null
     return $url;
 }
 
+function is_dir_empty($dir)
+{
+    if (!is_readable($dir)) return null;
+    return (count(scandir($dir)) == 2);
+}
+
 ?>
