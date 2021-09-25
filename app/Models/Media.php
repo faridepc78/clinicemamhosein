@@ -42,11 +42,6 @@ class Media extends Model
         });
     }
 
-    public function getThumbAttribute()
-    {
-        return MediaFileService::thumb($this);
-    }
-
     public function getOriginalAttribute()
     {
         return MediaFileService::original($this);
