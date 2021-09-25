@@ -17,7 +17,7 @@
                          class="img-circle elevation-2" alt="Profile">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{auth()->user()->getFullNameAttribute()}}</a>
+                    <a href="{{route('profile')}}" class="d-block">{{auth()->user()->getFullNameAttribute()}}</a>
                 </div>
             </div>
 
