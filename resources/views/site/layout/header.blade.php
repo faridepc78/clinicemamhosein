@@ -19,6 +19,7 @@
     <meta property="og:type" content="website">
     <meta name="twitter:title" content="درمانگاه شبانه روزی امام حسین (ع)">
     <meta name="theme-color" content="#4096c3"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('site_title')
 
