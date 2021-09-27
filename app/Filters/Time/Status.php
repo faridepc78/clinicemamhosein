@@ -11,13 +11,13 @@ class Status extends Filter
 {
     protected function applyFilter($builder)
     {
-        $search = request($this->filterName());
+        $keyword = request($this->filterName());
 
-        if ($search == 'active') {
+        if ($keyword == 'active') {
             return $builder->where('date', '>=', Carbon::now()->toDateString());
-        } elseif ($search == 'not-capacity') {
+        } elseif ($keyword == 'not-capacity') {
             return $builder->where('capacity', '=', 0);
-        } elseif ($search == 'expire-date') {
+        } elseif ($keyword == 'expire-date') {
             return $builder->where('date', '<', Carbon::now()->toDateString());
         }
     }

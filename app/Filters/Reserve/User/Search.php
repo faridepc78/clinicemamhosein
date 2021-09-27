@@ -12,10 +12,14 @@ class Search extends Filter
     {
         $keyword = request($this->filterName());
 
-        return $builder->whereHas('doctor', function ($query) use ($keyword) {
+        if ($keyword != null) {
+            return $builder->whereHas('doctor', function ($query) use ($keyword) {
                 $query->where('f_name', 'like', '%' . $keyword . '%')
                     ->orWhere('l_name', 'like', '%' . $keyword . '%')
                     ->orWhereRaw("concat(f_name, ' ', l_name) like '%$keyword%' ");
             });
+        } else {
+            return $builder;
+        }
     }
 }

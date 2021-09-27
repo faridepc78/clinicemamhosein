@@ -11,7 +11,9 @@ class Search extends Filter
 {
     protected function applyFilter($builder)
     {
-        if (request($this->filterName()) != null) {
+        $keyword = request($this->filterName());
+
+        if ($keyword != null) {
             $date = Jalalian::fromFormat('Y-m-d', convert(request($this->filterName())))->toCarbon()->toDateString();
             return $builder->where('date', $date);
         } else {
