@@ -179,12 +179,14 @@
 
                     <li class="nav-item has-treeview {{ request()->routeIs(['posts.index',
 'posts.create',
-'posts.edit']) ? 'menu-open' : '' }}">
+'posts.edit',
+'post_media_index']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['posts.index',
 'posts.create',
-'posts.edit']) ? 'active' : '' }}">
+'posts.edit',
+'post_media_index']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-paper-plane"></i>
                             <p>
                                 پست ها
