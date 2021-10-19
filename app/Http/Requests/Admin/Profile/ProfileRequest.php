@@ -45,7 +45,7 @@ class ProfileRequest extends FormRequest
             'mobile' => ['required', 'numeric', 'digits:11', new ValidationMobile()],
             'national_code' => ['required', 'numeric', 'digits:10', new ValidationNationalCode()],
             'birthday' => ['nullable', 'date', 'date_format:Y-m-d', 'before:today'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024'],
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120'],
             'sex' => ['required', Rule::in(User::$sex)],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ];

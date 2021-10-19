@@ -15,7 +15,7 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024'],
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120'],
             'password' => ['nullable', 'string', 'min:8','confirmed'],
         ];
     }

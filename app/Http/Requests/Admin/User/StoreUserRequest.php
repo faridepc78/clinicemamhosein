@@ -40,7 +40,7 @@ class StoreUserRequest extends FormRequest
             'mobile' => ['required', 'numeric', 'digits:11', 'unique:users,mobile', new ValidationMobile()],
             'national_code' => ['required', 'numeric', 'digits:10', 'unique:users,national_code', new ValidationNationalCode()],
             'birthday' => ['nullable', 'date', 'date_format:Y-m-d', 'before:today'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024'],
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120'],
             'sex' => ['required', Rule::in(User::$sex)],
             'password' => ['required', 'string', 'min:8'],
             'role' => ['required', Rule::in(User::$roles)]

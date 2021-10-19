@@ -24,7 +24,7 @@ class StoreExpertiseRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:expertises,name'],
             'slug' => ['required', 'string', 'max:255', 'unique:expertises,slug'],
-            'image' => ['required', 'mimes:jpg,png,jpeg,svg', 'max:1024']
+            'image' => ['required', 'mimes:jpg,png,jpeg,svg', 'max:5120']
         ];
     }
 

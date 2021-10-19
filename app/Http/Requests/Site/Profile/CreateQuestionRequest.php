@@ -28,7 +28,7 @@ class CreateQuestionRequest extends FormRequest
     {
         return [
             'doctor_id' => ['required', 'exists:users,id', new ValidationUserRole(User::DOCTOR)],
-            'media' => ['nullable', 'mimes:jpg,png,jpeg', 'max:2048'],
+            'media' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120'],
             'subject' => ['required', 'string', 'max:50'],
             'message' => ['required', 'string']
         ];

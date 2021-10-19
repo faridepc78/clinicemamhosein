@@ -86,6 +86,7 @@ class UserController extends Controller
             DB::commit();
             newFeedback();
         } catch (Exception $exception) {
+        	DB::rollBack();
             newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
         }
         return redirect()->route('users.edit', $id);
