@@ -92,7 +92,7 @@
                                         <label for="birthday">تاریخ تولد</label>
                                         <input readonly
                                                class="form-control"
-                                               value="{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strtotime($user['birthday']))}}"
+                                               value="@if($user->birthday!==null){{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strtotime($user['birthday']))}}@endif"
                                                id="birthday">
                                     </div>
 
