@@ -68,8 +68,7 @@
 
                             <p class="des margin-top-20">
                                 <span class="font-yellow-lemon  attention">توجه:</span>
-                                درصورتی که قبلا ثبت نام کرده‌اید رمز عبور به طور پیش‌‌فرض شماره موبایل ثبت شده در سامانه
-                                است.
+                                درصورتی که قبلا ثبت نام کرده‌اید رمز عبور به طور پیش‌‌فرض تلفن همراه شما ثبت شده است.
                             </p>
 
                             <button name="submit" type="submit">ورود</button>
