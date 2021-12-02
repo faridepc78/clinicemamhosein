@@ -77,7 +77,7 @@ class UserRepository
     {
         return User::query()
             ->where('national_code', '=', $national_code)
-            ->firstOrFail();
+            ->first();
     }
 
     public function updatePassword($password, $id)

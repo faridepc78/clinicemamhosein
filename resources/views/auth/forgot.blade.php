@@ -14,6 +14,14 @@
 
                     <div class="col-md-6 col-xs-12">
 
+                        @if ($errors->has('failed'))
+                            <div id="failed_alert" class="alert alert-danger text-center">
+                                <i onclick="$('#failed_alert').hide();" style="cursor: pointer"
+                                   class="fa fa-times-circle"></i>
+                                <span>{{$errors->first('failed')}}</span>
+                            </div>
+                        @endif
+
                         <form id="forgot_form" class="login-box animated fade-in-up center-block"
                               method="post" action="{{route('forgot')}}">
 

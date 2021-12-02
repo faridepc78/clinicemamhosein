@@ -27,11 +27,16 @@ class ForgotPasswordController extends Controller
         try {
             $national_code = $request->input('national_code');
             $user = $this->userRepository->findByNationalCode($national_code);
-            $password = randomNumbers(8);
-            $this->userRepository->updatePassword($password, $user['id']);
-            $user->notify(new SendPasswordCode($password));
-            newFeedback('پیام', 'رمز عبور جدید برای شما ارسال شد', 'success');
-            return redirect()->route('login');
+
+            if (!$user) {
+                return redirect()->route('forgot')->withErrors(['failed'=>'کاربری با این تلفن همراه در سیستم ثبت نشده است']);
+            }else{
+                $password = randomNumbers(8);
+                $this->userRepository->updatePassword($password, $user['id']);
+                $user->notify(new SendPasswordCode($password));
+                newFeedback('پیام', 'رمز عبور جدید برای شما ارسال شد', 'success');
+                return redirect()->route('login');
+            }
         } catch (Exception $exception) {
             newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
             return redirect()->route('forgot');
