@@ -49,7 +49,7 @@ class PanelController extends Controller
         try {
             $this->userRepository->updateProfile($request, Auth::id());
             if (!empty($request->get('password'))) {
-                $this->userRepository->updatePassword($request->get('password'), $id);
+                $this->userRepository->updatePassword($request->get('password'), Auth::id());
             }
             newFeedback();
         } catch (Exception $exception) {
