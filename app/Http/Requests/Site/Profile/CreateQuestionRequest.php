@@ -12,7 +12,7 @@ class CreateQuestionRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return auth()->check() == true;
     }
 
     protected function prepareForValidation()
