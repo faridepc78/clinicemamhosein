@@ -1,0 +1,15 @@
+{
+    "admin": "مدیر",
+    "doctor": "پزشک",
+    "clerk": "منشی",
+    "patient": "بیمار",
+    "male": "مرد",
+    "female": "زن",
+    "active": "فعال",
+    "inactive": "غیر فعال",
+    "visited": "ویزیت شده",
+    "unvisited": "ویزیت نشده",
+    "canceled": "کنسل شده",
+    "read": "خوانده شده",
+    "unread": "خوانده نشده"
+}
